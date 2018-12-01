@@ -1,0 +1,23 @@
+
+     Surface Energy Loss   Energy Generated
+     3.600000000000E+05    3.600000000000E+05
+Numerical Solution
+
+  552.44  580.59  552.44
+  575.43  606.34  575.43
+  552.44  580.59  552.44
+Temperature at the rod center  
+
+  606.34
+Temperature at the mid of the bottom face   
+
+  431.90
+Temperature at the mid of RHS side   
+
+  536.75
+dx is    
+
+  1.333333333333333E-003
+dy is    
+
+  1.000000000000000E-002

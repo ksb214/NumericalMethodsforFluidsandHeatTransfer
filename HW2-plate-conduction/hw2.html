@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html><head>
+
+
+  <meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+  <meta content="Corel WordPerfect 8" name="Generator">
+  <meta content="Mozilla/4.76 [en] (WinNT; U) [Netscape]" name="GENERATOR"></head><body alink="#ff0000" bgcolor="#c0c0c0" link="#0000ff" text="#000000" vlink="#551a8b">
+<b><font size="+1">Homework 2: Finite Volume Solution of a Simple
+Conduction
+Problem</font></b>
+<br>
+&nbsp;
+<p>Solve a conduction problem involving a bar with internal heat source
+and cooling at the surface by a fluid bath. Do not take advantage of
+any
+symmetry in your solution.&nbsp; Use symmetry to check your
+solution.&nbsp;
+Within the bar the conductivity (k) can be assumed constant and the
+conduction
+equation is:
+</p>
+<p><img src="hw2_files/hw20image0.gif" height="36" width="174"></p>
+<p>Surface Heat flux surface is given by the expression:
+</p>
+<p><img src="hw2_files/hw20image1.gif" height="62" width="228"></p>
+<p>Use the following values for your solution:
+</p>
+<p>T<sub>fluid</sub> = 300K
+</p>
+<p>h = 25,000 w/m<sup>2</sup>
+</p>
+<p>k = 85 w/m/K
+</p>
+<p>q = 3.0e9 w/m<sup>3</sup>.
+</p>
+<p>Assume an infinite length bar (2-D problem), with a 0.004m by 0.03m
+rectangular cross-section.
+</p>
+<p>To solve the problem divide the bar into a 10x10 array of equal
+sized
+volumes. Begin by solving two related problems to test your program.
+Assume
+that the origin of an x-y coordinate system is located at the center of
+the bar. For the first problem allow the above heat flux condition to
+the
+liquid at x = ±0.002m, but set the heat flux to zero at the y =
+±0.015 m surfaces (adiabatic boundary condition). For this
+situation
+the temperature is independent of y and you can compare your
+computational
+results against an analytic solution for T(x). Give me a plot comparing
+the results at the centers of 10 volumes in the x direction to the
+analytic
+results.&nbsp; Confirm that there is no change of temperature in the y
+direction.&nbsp; Provide me with your derivation of the analytic
+solution or a reference to a book containing the solution.<br>
+</p>
+<p>With that done shift the 1-D problem by 90 degrees. Use the above
+heat
+flux condition to the liquid at y = ±0.015 m, and set the heat
+flux
+to zero at the x = ±0.002m surfaces (adiabatic boundary
+condition).
+Again provide me with a plot with both finite volume and analytic
+results.
+</p>
+<p>Now that you have confidence in your program, run the full 2-D
+problem
+with heat flux to the liquid on all four surfaces. Provide me with a
+clear
+printout of temperature at the center of all volumes. I prefer a file
+with
+one line for each y row of volumes, and ten numbers in each line
+corresponding
+to the ten volumes in the x direction. Give me two digits to the right
+of the decimal for your numbers (e.g. 910.11, 1011.23).
+</p>
+<p>Clearly write out the finite volume equations that you use,
+including
+special cases at boundaries.&nbsp; Submit your write-up, plots, and
+program
+to the drop box on <a href="https://cms.psu.edu/frameIndex.htm">ANGEL</a>.&nbsp;
+To make my life easier, either imbed everything in a single Word
+Processor
+file (Word, WordPerfect, or FrameMaker), or collect your material in a
+single archive file using&nbsp; Winzip, zip, pkzip, or tar.
+</p>
+<p><b>The Fine Print:</b>
+</p>
+<p>To make my grading easier, I expect you to adhere to good
+programming
+practices. The <a href="http://www.personal.psu.edu/jhm/ME540/homework/hw2/steady.f90">main program</a> should just
+be
+an outline. Create separate subprograms to initialize terms in your
+linear
+equations, to <a href="http://www.personal.psu.edu/jhm/ME540/homework/hw2/LUsolveM.f90">solve the equations</a>, and
+to
+output the solution.&nbsp; Parameters such as conductivity, volumetric
+heat source, number of mesh cells, and mesh cell sizes should all be
+stored
+in variables that are <a href="http://www.personal.psu.edu/jhm/ME540/homework/hw2/DataM.f90">initialized once </a>in
+your
+program. Include adequate comments describing the purpose of each
+subprogram,
+defining all subprogram arguments, and describing all key steps in the
+program.&nbsp; If you are programming in Fortran 90, use the new "<a href="http://www.personal.psu.edu/jhm/f90/statements/real.html">KIND</a>"
+attribute to specify the precision of your arithmetic.&nbsp; Define the
+KIND with the Fortran 90 intrinsic function "selected_real_kind".&nbsp;
+I recommend that you use my module named "<a href="http://www.personal.psu.edu/jhm/ME540/homework/hw2/IntrTypeM.f90">IntrTypeM.f90</a>"
+to make this definition, and a similar definition for integers.
+</p>
+<p>Whenever you are testing a numerical solution method, your first
+method
+for solving linear equations should be direct (Gauss Elimination or
+Lower/Upper
+Decomposition).&nbsp; This minimizes opportunities for error because of
+simplicity of the matrix data structure, and availability of tested
+solution
+subprograms.&nbsp; In fact, you should almost never write subprograms
+to
+solve linear equations.&nbsp; Plenty of very good public domain
+software
+is available for linear algebra (e.g. <a href="http://www.netlib.org/">NetLib</a>).&nbsp;
+For this homework feel free to use the same <a href="http://www.personal.psu.edu/jhm/ME540/homework/hw2/LUsolveM.f90">subprograms</a>
+that I have called from my sample <a href="http://www.personal.psu.edu/jhm/ME540/homework/hw2/steady.f90">main program</a>.
+</p>
+<p>This assignment may seem a little frightening.&nbsp; However, I've
+shown
+you most of my program in the links above.&nbsp; The coding that I
+haven't
+shown you requires less than 100 lines of Fortran to generate the
+matrix
+and right hand side resulting from the finite volume equations.&nbsp;
+You
+may use any of the coding linked from this page as a start for your
+solution, including a template for the <a href="http://www.personal.psu.edu/jhm/ME540/homework/hw2/SetEqnM.f90">SetEqn</a>
+module.
+</p>
+<p><b>Selecting a Programming Language:</b>
+</p>
+<p>You should talk to your research advisor.&nbsp; If he or she states
+that you must use C for your research or if C is the dominant language
+for applications in your research area, then use it for this and other
+programs in this class.&nbsp; If this is not the case, regardless of
+previous
+programming experience, I recommend that you work in Fortran 90 or the
+latest standard Fortran 95.&nbsp; Yes, some professor has probably told
+you that Fortran is a dead language.&nbsp; I was told the same thing in
+1968, and have heard it frequently since, so I don't take such
+statements
+too seriously.&nbsp; Fortran has always been designed specifically for
+Scientific and Engineering programs.&nbsp; This is particularly evident
+now in the support for array operations in the language structure and
+intrinsic
+function set, and related support for high performance computing.&nbsp;
+In addition, more Fortran public domain equation solution subprograms
+will
+be available to you than if you use C.
+</p>
+<p>If you want a free Fortran 95 Compiler and have Linux check this <a href="http://www.intel.com/software/products/compilers/flin/noncom.htm">Intel
+site</a>.&nbsp; If you want a free Fortran 95 Language Reference Guide
+check this other <a href="http://www.intel.com/software/products/compilers/f60/resources/for_lib.pdf">Intel
+page</a>.
+<br>
+&nbsp;
+<br>
+&nbsp;
+</p>
+
+</body></html>
